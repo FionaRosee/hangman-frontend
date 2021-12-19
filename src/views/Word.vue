@@ -6,30 +6,18 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col">Numbering</th>
-      <th scope="col">Difficulty</th>
+      <th scope="col">ID</th>
       <th scope="col">Length</th>
-      <th scope="col">Word</th>
+      <th scope="col">Difficulty</th>
+      <th scope="col">word</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>1</td>
-      <td>3</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>1</td>
-      <td>3</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>4</td>
-      <td>9</td>
-      <td>cheesecake</td>
+    <tr v-for="wordEntity in wordEntities" :key="wordEntity.id">
+      <th scope="row">{{wordEntity.id}}</th>
+      <td>{{wordEntity.word.length}}</td>
+      <td>{{wordEntity.difficulty}}</td>
+      <td>{{wordEntity.word}}</td>
     </tr>
     </tbody>
   </table>
@@ -37,7 +25,28 @@
 
 <script>
 export default {
-  name: 'Word'
+  name: 'Word',
+  data () {
+    return {
+      wordEntities: [
+
+      ]
+    }
+  },
+  mounted() {
+    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/words'
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+
+    fetch(endpoint, requestOptions)
+      .then(response => response.json())
+      .then(result => result.forEach(word=> {
+        this.wordEntities.push(word)
+      }))
+      .catch(error => console.log('error', error))
+  }
 }
 </script>
 
