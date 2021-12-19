@@ -10,6 +10,7 @@
           <router-link class="nav-link" to="/about">How to</router-link>
           <router-link class="nav-link" to="/word">Wordlist</router-link>
           <router-link class="nav-link" to="/impressum">Highscore</router-link>
+          <router-link class="nav-link" to="/game">Game</router-link>
 <!--          <a class="nav-link active" aria-current="page" href="#">Home</a>-->
 <!--          <a class="nav-link" href="#">Highscore</a>-->
 <!--          <a class="nav-link" href="#">Word</a>-->
