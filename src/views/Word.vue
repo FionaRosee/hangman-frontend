@@ -1,8 +1,9 @@
 <template>
   <h1>Wordlist</h1>
-  <button class="btn btn-primary" type="add">add</button>
-  <button class="btn btn-primary" type="delete">delete</button>
-  <button class="btn btn-primary" type="change">change</button>
+  <div class="container-fluid">
+    <word-list :wordEntities="this.wordEntities"></word-list>
+  </div>
+  <add-word-list></add-word-list>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -24,6 +25,8 @@
 </template>
 
 <script>
+/* import Wordlist from '@/components/Wordlist'
+import AddWordList from '@/components/AddWordList' */
 export default {
   name: 'Word',
   data () {
@@ -33,7 +36,7 @@ export default {
       ]
     }
   },
-  mounted() {
+  mounted () {
     const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/words'
     const requestOptions = {
       method: 'GET',
@@ -42,7 +45,7 @@ export default {
 
     fetch(endpoint, requestOptions)
       .then(response => response.json())
-      .then(result => result.forEach(word=> {
+      .then(result => result.forEach(word => {
         this.wordEntities.push(word)
       }))
       .catch(error => console.log('error', error))
