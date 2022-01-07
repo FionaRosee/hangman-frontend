@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/Howto.vue'
 import Word from '../views/Word.vue'
 import Impressum from '../views/Impressum.vue'
+import Game from '@/views/Game'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/impressum',
     name: 'Impressum',
     component: Impressum
+  },
+  {
+    path: '/game',
+    name: 'Game',
+    component: Game
   }
 ]
 

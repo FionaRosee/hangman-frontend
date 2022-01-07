@@ -1,9 +1,11 @@
 <template>
-    <div class="d-grid gap-2 col-6 mx-auto">
-      <h1>{{ msg }} </h1>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <h1>{{ msg }} </h1>
+    <router-link to="Game">
       <button class="btn btn-primary" type="button">Start</button>
-      <button class="btn btn-primary" type="button">Continue playing</button>
-    </div>
+    </router-link>ää############################################-ä#####
+    <button class="btn btn-primary" type="button">Continue playing</button>
+  </div>
 </template>
 
 <script>
@@ -26,6 +28,7 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 div {
   border-radius: 5px;
   background-color: #f2f2f2;

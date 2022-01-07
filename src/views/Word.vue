@@ -1,9 +1,9 @@
 <template>
   <h1>Wordlist</h1>
   <div class="container-fluid">
-    <word-list :wordEntities="this.wordEntities"></word-list>
+    <add-wordlist :wordEntities="this.wordEntities" @created="this.loadWords"></add-wordlist>
   </div>
-  <add-word-list></add-word-list>
+  <word-description></word-description>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -25,10 +25,13 @@
 </template>
 
 <script>
-/* import Wordlist from '@/components/Wordlist'
-import AddWordList from '@/components/AddWordList' */
+import WordDescription from '@/components/WordDescription'
+import AddWordlist from '@/components/AddWordList'
+import { loadWordList } from '@/util'
+
 export default {
   name: 'Word',
+  components: { AddWordlist, WordDescription },
   data () {
     return {
       wordEntities: [
@@ -37,19 +40,15 @@ export default {
     }
   },
   mounted () {
-    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/words'
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
+    this.loadWords()
+  },
+  methods: {
+    async loadWords () {
+      this.wordEntities = await loadWordList()
     }
 
-    fetch(endpoint, requestOptions)
-      .then(response => response.json())
-      .then(result => result.forEach(word => {
-        this.wordEntities.push(word)
-      }))
-      .catch(error => console.log('error', error))
   }
+
 }
 </script>
 
