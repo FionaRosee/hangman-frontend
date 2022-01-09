@@ -9,13 +9,6 @@
     <div class="offcanvas-body">
       <form class="text-start needs-validation" id="add-word-form" novalidate>
         <div class="mb-3">
-          <label for="id" class="form-label">ID</label>
-          <input type="text" class="form-control" id="id" v-model="id" required>
-          <div class="invalid-feedback">
-            Please provide the id.
-          </div>
-        </div>
-        <div class="mb-3">
           <label for="length" class="form-label">Length</label>
           <input type="text" class="form-control" id="length" v-model="length" required>
           <div class="invalid-feedback">

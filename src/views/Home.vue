@@ -1,22 +1,16 @@
 <template>
   <form class="form-name">
     <div class="text-center mb-4">
-      <img class="mb-4" :src="logo">
+      <img class="mb-4" :src="logo" alt="logo">
       <h1 class="h3 mb-3 font-weight-normal">Hangman</h1>
       <p>My personal attempt at programming the game classic "Hangman".</p>
     </div>
-
     <div class="form-label-group">
-      <input type="text" id="name" class="form-control" placeholder="Name" required autofocus>
+      <input v-model="name" type="text" id="name" class="form-control text-center" placeholder="Name" required autofocus>
       <label for="name">Name</label>
     </div>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
     <router-link to="Game">
-      <button class="btn btn-lg btn-dark btn-block" type="submit">Start</button>
+      <button class="btn btn-lg btn-dark btn-block" type="submit" @click="saveName">Start</button>
     </router-link>
     <p class="mt-5 mb-3 text-muted text-center">Created with ❤️ by Alicia Sternkopf & Fiona Fischer</p>
   </form>
@@ -27,8 +21,22 @@ import logo from '@/assets/logo.png'
 
 export default {
   name: 'Home',
+  props: {
+    currentName: String
+  },
   data () {
-    return { logo: logo }
+    return {
+      logo: logo,
+      name: ''
+    }
+  },
+  methods: {
+    saveName () {
+      this.$emit('name', this.name)
+    }
+  },
+  mounted () {
+    if (this.currentName !== '') { this.name = this.currentName }
   }
 }
 

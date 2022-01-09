@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Instructions from '../views/Instructions.vue'
 import WordList from '../views/WordList.vue'
-import Highscore from '../views/Highscore.vue'
 import Game from '@/views/Game'
 
 const routes = [
@@ -20,11 +19,6 @@ const routes = [
     path: '/word-list',
     name: 'WordList',
     component: WordList
-  },
-  {
-    path: '/highscore',
-    name: 'Highscore',
-    component: Highscore
   },
   {
     path: '/game',

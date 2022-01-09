@@ -1,6 +1,6 @@
 <template>
   <h1>Hangman</h1>
-  <div>
+  <div v-if="solution">
     <p>Guess the word</p>
     <button class="btn btn-dark mx-1" :disabled="gameFinished || guessedLetters.indexOf(letter) !== -1" v-for="letter in alphabet" :key="letter" @click="setLetter(letter);">{{ letter.toUpperCase() }}</button>
     <p class="fs-3 my-3">{{guessingWord.join(" ")}}</p>
@@ -10,6 +10,9 @@
     <p v-show="gameWon">You won!</p>
     <button id="restart" @click="restart" type="button" class="btn btn-dark mt-3">Restart</button>
   </div>
+  <p v-else>
+    No words found in the database. Please <router-link :to="{ name: 'WordList' }">add a word to the database.</router-link>
+  </p>
 </template>
 
 <script>

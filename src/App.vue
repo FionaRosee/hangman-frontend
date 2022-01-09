@@ -1,6 +1,6 @@
 <template>
-  <navbar></navbar>
-  <router-view/>
+  <navbar :name="name"/>
+  <router-view :currentName="name" @name="saveName"/>
 </template>
 
 <script>
@@ -8,7 +8,18 @@ import Navbar from './components/Navbar'
 
 export default {
   name: 'App',
-  components: { Navbar }
+  components: { Navbar },
+  data () {
+    return {
+      name: ''
+    }
+  },
+  methods: {
+    saveName (name) {
+      this.name = name
+      console.log(name)
+    }
+  }
 }
 </script>
 

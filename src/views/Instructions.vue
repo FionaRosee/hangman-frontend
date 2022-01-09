@@ -26,6 +26,7 @@
       by guessing all the letters that appear in the word, thereby
       completing the word, before the diagram is completed.
     </p>
+    <p>Source: <a href="https://en.wikipedia.org/wiki/Hangman_(game)#Overview" target="_blank">Wikipedia</a></p>
   </div>
 </template>
 
