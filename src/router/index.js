@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import About from '../views/Howto.vue'
-import Word from '../views/Word.vue'
-import Impressum from '../views/Impressum.vue'
+import Instructions from '../views/Instructions.vue'
+import WordList from '../views/WordList.vue'
+import Highscore from '../views/Highscore.vue'
 import Game from '@/views/Game'
 
 const routes = [
@@ -12,19 +12,19 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About
+    path: '/instructions',
+    name: 'Instructions',
+    component: Instructions
   },
   {
-    path: '/word',
-    name: 'Word',
-    component: Word
+    path: '/word-list',
+    name: 'WordList',
+    component: WordList
   },
   {
-    path: '/impressum',
-    name: 'Impressum',
-    component: Impressum
+    path: '/highscore',
+    name: 'Highscore',
+    component: Highscore
   },
   {
     path: '/game',

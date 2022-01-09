@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: 'Impressum'
+  name: 'Highscore'
 }
 </script>
 
